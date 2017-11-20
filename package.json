@@ -1,0 +1,17 @@
+{
+  "name": "fridaybot",
+  "version": "1.0.0",
+  "description": "Sunday friday bot",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botkit": "^0.6.7",
+    "moment": "^2.19.2",
+    "nodemon": "^1.12.1"
+  }
+}
