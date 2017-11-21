@@ -46,5 +46,13 @@ slack.on('direct_mention', (bot, message) => {
 
 // listen if someone swears on the channel
 slack.hears(bad, ["direct_message", "direct_mention", "mention", "ambient"], (bot, message) => {
-  bot.reply(message, `No worries... ${message.user} Friday is coming soon!`);
+  bot.api.users.info({user:message.user}, (err,response) => {
+    if(err) {
+      bot.reply(message, `No worries... Friday is coming soon!`);
+    }
+    else {
+      const user = response["user"];
+      bot.reply(message, `No worries...<@${user["name"] || ''}> Friday is coming soon!`);
+    }
+  });
 });
