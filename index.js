@@ -1,5 +1,6 @@
 const Botkit = require('botkit');
 const moment = require('moment');
+const bad = require('./bad-words');
 
 // init slack bot
 const slack = Botkit.slackbot({
@@ -10,13 +11,40 @@ const slack = Botkit.slackbot({
 slack.spawn({
   token: process.env.FRIDAY_BOT_TOKEN,
 })
-.startRTM(function (err, bot, payload) {
+.startRTM((err, bot, payload) => {
   if (err) throw new Error(err);
-  console.log('Friday bot running...');
+  console.log('Friday bot is up and running...');
 });
 
 // listen for direct message
-slack.on('direct_mention', function(bot, message) {
-  const isFriday = moment().day() == 5
-  bot.reply(message, isFriday ? 'YES': 'NO');
+slack.on('direct_mention', (bot, message) => {
+  let text = "";
+  switch (moment().day()) {
+    case 6:
+    case 0:
+      text = "It’s time to enjoy the weekend, I wish you lots of fun and that you have a super time.";
+      break;
+    case 1:
+      text = "Start a new week, you are unstoppable, invincible and powerful today! Drink coffe and be patient 4 days left till Friday! :coffee:"
+      break;
+    case 2:
+      text = "Monday is over! You have survived. 3 days left to Friday! :unamused:"
+      break;
+    case 3:
+      text = "Fish day! :fish: Drink more coffe, 2 days left to awesome Friday! :tired_face:"
+      break;
+    case 4:
+      text = "Little friday is here! Survive 1 more day till Friday! :pray:"
+      break;
+    case 5:
+      text = "Ouu yes! It's finally Friday! Don't forget to drink some beers! :tada: :beers:"
+      break;
+    default:
+  }
+  bot.reply(message, text);
+});
+
+// listen if someone swears on the channel
+slack.hears(bad, (bot, message) => {
+  bot.say(message, `No worries... ${message.user} Friday is coming soon!`);
 });
