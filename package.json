@@ -4,14 +4,13 @@
   "description": "Sunday friday bot",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "botkit": "^0.6.7",
-    "moment": "^2.19.2",
-    "nodemon": "^1.12.1"
+    "moment": "^2.19.2"
   }
 }
