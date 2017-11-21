@@ -46,5 +46,5 @@ slack.on('direct_mention', (bot, message) => {
 
 // listen if someone swears on the channel
 slack.hears(bad, ["direct_message", "direct_mention", "mention", "ambient"], (bot, message) => {
-  bot.say(message, `No worries... ${message.user} Friday is coming soon!`);
+  bot.reply(message, `No worries... ${message.user} Friday is coming soon!`);
 });
