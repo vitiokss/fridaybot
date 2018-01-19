@@ -19,11 +19,11 @@ slack.spawn({
 });
 
 function formatJoke(joke) {
-  return `\n\n >>> ${joke.body}`
+  return `\n\n &gt;&gt;&gt; ${joke.body}`
 }
 
 function formatMotivation(motivation) {
-  return `\n\n >>> ${motivation.text} \n > ${motivation.from}`
+  return `\n\n &gt;&gt;&gt; ${motivation.text} \n &gt; ${motivation.from}`
 }
 
 // listen for direct message
