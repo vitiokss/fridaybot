@@ -38,22 +38,22 @@ slack.on('direct_mention', (bot, message) => {
   switch (moment().day()) {
     case 6:
     case 0:
-      bot.reply("It’s time to enjoy the weekend, I wish you lots of fun and that you have a super time.", format(joke));
+      bot.reply(message, format("It’s time to enjoy the weekend, I wish you lots of fun and that you have a super time.", joke));
       break;
     case 1:
-      bot.reply("Start a new week, you are unstoppable, invincible and powerful today! Drink coffee and be patient 4 days left till Friday! :coffee: ", format(motivation)); 
+      bot.reply(message, format("Start a new week, you are unstoppable, invincible and powerful today! Drink coffee and be patient 4 days left till Friday! :coffee: ", motivation)); 
       break;
     case 2:
-      bot.reply("Monday is over! You have survived. 3 days left to Friday! :unamused:", format(motivation))
+      bot.reply(message, format("Monday is over! You have survived. 3 days left to Friday! :unamused:", motivation))
       break;
     case 3:
-      bot.reply("Fish day! :fish: Drink more coffee, 2 days left to awesome Friday! :tired_face:", format(joke))
+      bot.reply(message, format("Fish day! :fish: Drink more coffee, 2 days left to awesome Friday! :tired_face:", joke))
       break;
     case 4:
-      bot.reply("Little friday is here! Survive 1 more day till Friday! :pray:", format(motivation));
+      bot.reply(message, format("Little friday is here! Survive 1 more day till Friday! :pray:", motivation));
       break;
     case 5:
-      bot.reply("Ouu yes! It's finally Friday! Don't forget to drink some beers! :tada: :beers:", format(joke));
+      bot.reply(message, format("Ouu yes! It's finally Friday! Don't forget to drink some beers! :tada: :beers:", joke));
       break;
     default:
   }
