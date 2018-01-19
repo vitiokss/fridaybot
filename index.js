@@ -27,7 +27,9 @@ function format(message, quote) {
   if (quote && quote.from) {
     message.title = quote.from;
   }
-  return message;
+  return {
+    "attachments": [message]
+  };
 }
 
 // listen for direct message
