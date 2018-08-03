@@ -69,7 +69,14 @@ slack.hears(bad, ["direct_message", "direct_mention", "mention", "ambient"], (bo
     }
     else {
       const user = response["user"];
-      bot.reply(message, `No worries...<@${user["name"] || ''}> Friday is coming soon!`);
+      var comment = `No worries...<@${user["name"] || ''}> Friday is coming soon!`
+      if (moment().weekday() == 5) {
+        comment = `No worries...<@${user["name"] || ''}> Today is Friday, relax and enjoy!`
+      }
+      if (moment().weekday() == 6 || moment().weekday() == 0) {
+        comment = `No worries...<@${user["name"] || ''}> It is weekend! Have some fun :beers:!`
+      }
+      bot.reply(message, comment);
     }
   });
 });
